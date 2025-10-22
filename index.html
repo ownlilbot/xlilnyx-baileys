@@ -1,224 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CRAFTED BY XLILNYX</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEZARD BAILEYS</title>
 <style>
-  :root{
-    --bg-1:#000;
-    --bg-2:#030303;
-    --neon:#00ffff;
-    --muted:#8aa;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    min-height:100vh;
-    background:radial-gradient(circle at 35% 20%,#060606 0%,var(--bg-2) 40%,#000 100%);
-    color:#e6ffff;
-    font-family:"Courier New",monospace;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:space-between;
-    overflow:hidden;
-    padding:20px 16px;
-  }
-  header{text-align:center;margin-top:4px}
-  h1{
-    font-size:2.2rem;
-    color:var(--neon);
-    text-shadow:0 0 10px #00ffff,0 0 30px rgba(0,255,255,0.08);
-    margin-bottom:2px;
-    letter-spacing:1.5px;
-  }
-  .tagline{
-    font-size:1rem;
-    color:#9ff;
-    margin-bottom:10px;
-    text-shadow:0 0 8px rgba(0,255,255,0.06);
-  }
-  .card{
-    z-index:10;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    max-width:420px;
-    width:100%;
-  }
-  .thumb{
-    width:220px;
-    max-width:72%;
-    border-radius:14px;
-    box-shadow:0 6px 30px rgba(0,255,255,0.08);
-    transition:transform .25s ease;
-  }
-  .thumb:hover{transform:scale(1.03)}
-  .info{
-    background:rgba(0,255,255,0.05);
-    color:var(--neon);
-    padding:8px 14px;
-    border-radius:10px;
-    box-shadow:0 0 18px rgba(0,255,255,0.06);
-    font-size:0.95rem;
-    line-height:1.4;
-    text-align:left;
-    width:fit-content;
-    max-width:90%;
-    white-space:pre-wrap;
-    margin-top:6px;
-  }
-  footer{
-    z-index:10;
-    text-align:center;
-    margin-top:10px;
-    margin-bottom:4px;
-    color:var(--muted);
-    font-size:0.95rem;
-    display:flex;
-    flex-direction:column;
-    gap:2px;
-    align-items:center;
-  }
-  footer a{color:var(--neon);text-decoration:none;font-weight:600}
-  footer a:hover{text-shadow:0 0 10px var(--neon)}
-  .particles{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:1;
-    overflow:hidden;
-  }
-  .p{
-    position:absolute;
-    border-radius:50%;
-    will-change:transform,opacity;
-    mix-blend-mode:screen;
-    opacity:0.85;
-    filter:blur(.2px);
-  }
-  @media(max-width:600px){
-    h1{font-size:1.6rem}
-    .thumb{width:180px}
-    .info{font-size:0.85rem;padding:6px 10px}
-    footer{font-size:0.85rem}
-  }
+:root{
+  --bg-1:#000;
+  --bg-2:#030303;
+  --neon:#00ffff;
+  --muted:#8aa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at 35% 20%,#060606 0%,var(--bg-2) 40%,#000 100%);
+  color:#e6ffff;
+  font-family:"Courier New",monospace;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  overflow:hidden;
+  padding:18px 12px;
+}
+header{text-align:center;margin-top:8px;margin-bottom:4px}
+h1{
+  font-size:2.2rem;
+  color:var(--neon);
+  text-shadow:0 0 10px #00ffff,0 0 30px rgba(0,255,255,0.08);
+  margin-bottom:2px;
+  letter-spacing:1.5px;
+  animation:neonGlow 3s ease-in-out infinite;
+}
+@keyframes neonGlow{
+  0%,100%{text-shadow:0 0 8px #00ffff,0 0 20px #00ffff,0 0 40px rgba(0,255,255,0.1)}
+  50%{text-shadow:0 0 20px #00ffff,0 0 60px #00ffff,0 0 100px rgba(0,255,255,0.4)}
+}
+.tagline{
+  font-size:1rem;
+  color:#9ff;
+  margin-bottom:6px;
+  text-shadow:0 0 8px rgba(0,255,255,0.06);
+}
+.card{
+  z-index:10;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  max-width:420px;
+  width:100%;
+  margin-top:4px;
+}
+.thumb{
+  width:220px;
+  max-width:72%;
+  border-radius:14px;
+  box-shadow:0 6px 30px rgba(0,255,255,0.08);
+  transition:transform .25s ease;
+}
+.thumb:hover{transform:scale(1.03)}
+.info{
+  background:rgba(0,255,255,0.05);
+  color:var(--neon);
+  padding:8px 14px;
+  border-radius:10px;
+  box-shadow:0 0 18px rgba(0,255,255,0.06);
+  font-size:0.95rem;
+  line-height:1.4;
+  text-align:left;
+  width:fit-content;
+  max-width:90%;
+  white-space:pre-wrap;
+}
+footer{
+  z-index:10;
+  text-align:center;
+  margin-top:6px;
+  margin-bottom:4px;
+  color:var(--muted);
+  font-size:0.95rem;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  align-items:center;
+}
+footer a{
+  color:var(--neon);
+  text-decoration:none;
+  font-weight:600;
+  transition:all .2s ease;
+}
+footer a:hover{text-shadow:0 0 10px var(--neon);transform:scale(1.05)}
+.particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  overflow:hidden;
+}
+.p{
+  position:absolute;
+  border-radius:50%;
+  will-change:transform,opacity;
+  mix-blend-mode:screen;
+  opacity:0.85;
+  filter:blur(.2px);
+}
+@media(max-width:600px){
+  h1{font-size:1.6rem}
+  .thumb{width:180px}
+  .info{font-size:0.85rem;padding:6px 10px}
+  footer{font-size:0.85rem}
+}
 </style>
 </head>
 <body>
-<div class="particles" id="particles"></div>
 <header>
-  <h1>WHATSAPP BAILEYS</h1>
+  <h1>LEZARD BAILEYS</h1>
   <div class="tagline">THANKS TO ALL PARTNER LEZARD</div>
 </header>
-<main class="card">
-  <img class="thumb" src="https://files.catbox.moe/rkrxit.jpg" alt="XLILNYX × LEZARD OFFICIAL">
+
+<div class="card">
+  <img src=https://files.catbox.moe/rkrxit.jpg" alt="Lezard Logo" class="thumb">
   <div class="info">
-DEVELOPER : XLILNYX
-THANKS TO : ALL PARTNER LEZARD
-ALL INFO  : @allaboutlezard
+    LEZARD INFO
+    🔹 PROJECT : Bots, APIs, Automation
+    🔹 OWNER   : @xlilnyx
+    🔹 MOTTO   : Efficiency Through Innovation
   </div>
-</main>
+</div>
+
 <footer>
   <div>©2025</div>
   <a href="https://github.com/ownlilbot" target="_blank">MY GITHUB</a>
   <a href="https://t.me/xlilnyx" target="_blank">MY TELEGRAM</a>
 </footer>
-<audio id="bg" loop preload="auto">
-  <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mp4">
-</audio>
+
+<div class="particles"></div>
+
 <script>
-(function(){
-  const colors=["#00ffff","#ff00ff","#9933ff","#33ccff","#66ff99"];
-  const P=document.getElementById("particles");
-  const count=Math.min(36,Math.round(window.innerWidth/30));
-  const particles=[];
-  const rand=(a,b)=>a+Math.random()*(b-a);
-  const pick=a=>a[Math.floor(Math.random()*a.length)];
-  for(let i=0;i<count;i++){
-    const el=document.createElement("div");
-    el.className="p";
-    const s=rand(2,7);
-    el.style.width=el.style.height=s+"px";
-    el.style.left=rand(0,100)+"vw";
-    el.style.top=rand(0,100)+"vh";
-    el.style.background=`radial-gradient(circle,${pick(colors)} 0%,transparent 65%)`;
-    el.style.opacity=rand(0.35,0.95);
-    P.appendChild(el);
-    particles.push({
-      el,
-      x:parseFloat(el.style.left),
-      y:parseFloat(el.style.top),
-      vx:rand(-0.02,0.02),
-      vy:rand(-0.03,0.03),
-      rot:rand(0,360),
-      vr:rand(-0.04,0.04),
-      scale:rand(.6,1.6),
-      driftTimer:rand(3000,9000)
-    });
-  }
-  let last=performance.now();
-  function step(now){
-    const dt=Math.min(60,now-last);
-    last=now;
-    for(const p of particles){
-      p.x+=p.vx*(dt/16)*0.8;
-      p.y+=p.vy*(dt/16)*0.9;
-      p.rot+=p.vr*(dt/16);
-      if(p.x<-5)p.x=105;
-      if(p.x>105)p.x=-5;
-      if(p.y<-5)p.y=105;
-      if(p.y>105)p.y=-5;
-      p.el.style.transform=`translate(-50%,-50%) translate(${p.x}vw,${p.y}vh) rotate(${p.rot}deg) scale(${p.scale})`;
-      p.driftTimer-=dt;
-      if(p.driftTimer<=0){
-        p.vx=rand(-0.03,0.03);
-        p.vy=rand(-0.04,0.04);
-        p.vr=rand(-0.06,0.06);
-        p.driftTimer=rand(3000,9000);
-      }
-    }
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-})();
-(function(){
-  const audio=document.getElementById("bg");
-  audio.volume=0;
-  audio.muted=true;
-  function fadeInTo(target=0.9,duration=3000){
-    audio.muted=false;
-    const steps=60;
-    const stepTime=duration/steps;
-    let cur=0;
-    const inc=target/steps;
-    const t=setInterval(()=>{
-      cur+=inc;
-      audio.volume=Math.min(cur,target);
-      if(audio.volume>=target)clearInterval(t);
-    },stepTime);
-  }
-  function tryPlay(){
-    const p=audio.play();
-    if(p!==undefined){
-      p.then(()=>{fadeInTo(0.9,3000);}).catch(()=>{
-        const resume=()=>{
-          audio.play().then(()=>fadeInTo(0.9,3000)).catch(()=>{});
-          window.removeEventListener("click",resume);
-          window.removeEventListener("touchstart",resume);
-        };
-        window.addEventListener("click",resume,{passive:true});
-        window.addEventListener("touchstart",resume,{passive:true});
-      });
-    }
-  }
-  tryPlay();
-  document.addEventListener("visibilitychange",()=>{
-    if(document.visibilityState==="visible")tryPlay();
-  });
-})();
+const container=document.querySelector('.particles');
+const count=35;
+for(let i=0;i<count;i++){
+  const el=document.createElement('div');
+  el.className='p';
+  const size=Math.random()*3+1;
+  el.style.width=el.style.height=size+'px';
+  el.style.background=`hsl(${180+Math.random()*80},100%,70%)`;
+  el.style.left=Math.random()*100+'%';
+  el.style.top=Math.random()*100+'%';
+  container.appendChild(el);
+  animate(el);
+}
+function animate(el){
+  const duration=4000+Math.random()*4000;
+  const x=(Math.random()-.5)*80;
+  const y=(Math.random()-.5)*80;
+  el.animate([
+    {transform:'translate(0,0)',opacity:Math.random()},
+    {transform:`translate(${x}px,${y}px)`,opacity:0.1}
+  ],{duration,iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
+}
 </script>
 </body>
 </html>
