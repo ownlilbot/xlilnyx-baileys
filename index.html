@@ -16,8 +16,7 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; } to { opacity: 1; }
   }
 
   h1 {
@@ -48,25 +47,26 @@
     width: 100%;
     max-width: 320px;
     box-shadow: 0 0 30px #00ffff;
-    transition: transform 0.4s ease, opacity 1.5s ease;
-    opacity: 0;
+    transition: transform 0.4s ease;
   }
+  img:hover { transform: scale(1.05); }
 
-  img.loaded {
-    opacity: 1;
+  audio {
+    display: none;
   }
 
   pre {
     text-align: left;
     display: inline-block;
     background: rgba(0, 255, 255, 0.08);
-    padding: 15px;
+    padding: 12px 18px;
     border-radius: 10px;
     box-shadow: 0 0 15px #0ff;
     color: #0ff;
     animation: pulse 3s infinite alternate;
     margin-top: 40px;
     font-size: 0.9em;
+    white-space: pre-wrap;
   }
 
   @keyframes pulse {
@@ -79,13 +79,19 @@
     color: #777;
     font-size: 14px;
     animation: fadeIn 3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
   }
 
-  a {
+  footer a {
     color: #0ff;
     text-decoration: none;
+    transition: 0.3s;
   }
-  a:hover {
+
+  footer a:hover {
     color: #fff;
     text-shadow: 0 0 10px #0ff;
   }
@@ -101,41 +107,22 @@
 
   <h1>WHATSAPP BAILEYS</h1>
   <div class="tagline">THANKS TO ALL PARTNER LEZARD</div>
-
-  <img id="mainImg" src="https://files.catbox.moe/rkrxit.jpg" alt="Thumbnail">
-
-  <audio id="bgmusic" autoplay loop muted>
+  <img src="https://files.catbox.moe/rkrxit.jpg" alt="Thumbnail">
+  <audio autoplay loop>
     <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mpeg">
   </audio>
 
-<pre>DEVELOPER  : XLILNYX
+  <pre>
+DEVELOPER  : XLILNYX
 THANKS TO  : ALL PARTNER LEZARD
-ALL INFO   : @allaboutmeyaw</pre>
+ALL INFO   : @allaboutlezard
+  </pre>
 
   <footer>
-    <p>© 2025 XLILNYX<br>
-    <a href="https://github.com/ownlilbot/xlilnyx-baileys" target="_blank">MY GITHUB BAILEYS</a> |
-    <a href="https://t.me/xlilnyx" target="_blank">MY TELEGRAM</a></p>
+    <p>© 2025 XLILNYX</p>
+    <a href="https://github.com/ownlilbot/xlilnyx-baileys" target="_blank">MY GITHUB BAILEYS</a>
+    <a href="https://t.me/xlilnyx" target="_blank">MY TELEGRAM</a>
   </footer>
-
-<script>
-  // fade-in gambar
-  const img = document.getElementById("mainImg");
-  img.onload = () => img.classList.add("loaded");
-
-  // fade-in suara setelah 1 detik
-  const music = document.getElementById("bgmusic");
-  window.addEventListener("load", () => {
-    let vol = 0;
-    const fade = setInterval(() => {
-      if (vol < 1) {
-        vol += 0.05;
-        music.volume = vol;
-      } else clearInterval(fade);
-    }, 200);
-    music.muted = false;
-  });
-</script>
 
 </body>
 </html>
