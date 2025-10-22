@@ -1,113 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>CRAFTED BY XLILNYX</title>
 <style>
-  body {
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --neon: #00ffff;
+    --accent: #ff00ff;
+    --bg: #000;
+    --muted: #888;
+  }
+
+  html, body {
+    height: 100%;
     margin: 0;
     background: radial-gradient(circle at center, #000 40%, #050505 100%);
-    color: #eee;
-    font-family: 'Courier New', monospace;
+    color: var(--neon);
+    font-family: 'Share Tech Mono', monospace;
     text-align: center;
-    overflow-x: hidden;
-    animation: fadeIn 2s ease;
+    animation: fadeIn 1s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; filter: blur(8px); }
+    to { opacity: 1; filter: blur(0); }
   }
 
   h1 {
-    font-size: 2.8em;
     margin-top: 70px;
-    color: #00ffff;
-    text-shadow: 0 0 10px #00ffff, 0 0 25px #00ffff;
-    position: relative;
-    display: inline-block;
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon), 0 0 25px var(--neon);
     animation: glitch 2s infinite;
   }
 
   @keyframes glitch {
-    0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
-    25% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
-    50% { text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
-    75% { text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff; }
-    100% { text-shadow: 0 0 20px #00ffff; }
+    0%,100% { text-shadow: 2px 2px var(--accent), -2px -2px var(--neon); }
+    25% { text-shadow: -2px 0 var(--accent), 2px 0 var(--neon); }
+    50% { text-shadow: 2px -2px var(--accent), -2px 2px var(--neon); }
+    75% { text-shadow: 0 2px var(--accent), 0 -2px var(--neon); }
   }
 
   .tagline {
-    font-size: 1.1em;
-    margin: 15px 0;
-    color: #0ff;
-    text-shadow: 0 0 15px #0ff;
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 1.05rem;
+    color: var(--neon);
     white-space: nowrap;
-    border-right: 2px solid #0ff;
+    border-right: 2px solid var(--neon);
     width: 0;
     overflow: hidden;
-    animation: typing 4s steps(40, end) 1s forwards, blink 0.8s infinite;
+    animation: typing 4s steps(40,end) 0.8s forwards, blink .8s infinite;
   }
 
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
+  @keyframes typing { from { width: 0; } to { width: 100%; } }
+  @keyframes blink { 0%,100% { border-color: transparent; } 50% { border-color: var(--neon); } }
 
-  @keyframes blink {
-    0%, 100% { border-color: transparent; }
-    50% { border-color: #0ff; }
-  }
-
-  img {
-    border-radius: 15px;
-    width: 400px;
-    box-shadow: 0 0 30px #00ffff;
+  img.hero {
     margin-top: 30px;
-    transition: transform 0.5s;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 16px;
+    box-shadow: 0 0 25px var(--neon);
+    transition: transform .5s, box-shadow .5s;
+  }
+  img.hero:hover { transform: scale(1.05); box-shadow: 0 0 45px var(--neon); }
+
+  audio {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 480px;
+    filter: drop-shadow(0 0 15px var(--neon));
+    border-radius: 8px;
   }
 
-  img:hover {
-    transform: scale(1.05);
-  }
-
-  pre {
-    text-align: left;
-    display: inline-block;
-    background: rgba(0, 255, 255, 0.08);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #0ff;
-    color: #0ff;
-    animation: pulse 3s infinite alternate;
-    margin-top: 50px;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #001;
+    background: linear-gradient(90deg, var(--neon), var(--accent));
+    box-shadow: 0 0 15px var(--neon), 0 0 25px var(--accent);
+    transition: all .2s ease;
+    animation: pulse 2.5s infinite ease-in-out alternate;
   }
 
   @keyframes pulse {
-    from { box-shadow: 0 0 10px #00ffff; }
-    to { box-shadow: 0 0 30px #00ffff; }
+    from { box-shadow: 0 0 12px var(--neon); transform: scale(1); }
+    to { box-shadow: 0 0 28px var(--accent); transform: scale(1.04); }
   }
 
-  audio {
-    margin-top: 40px;
-    filter: drop-shadow(0 0 15px #00ffff);
+  .btn:hover {
+    transform: scale(1.08);
+    color: #000;
   }
 
-  footer {
+  pre.info {
+    display: inline-block;
+    text-align: left;
+    background: rgba(0, 255, 255, 0.08);
+    padding: 16px 24px;
+    border-radius: 12px;
+    color: var(--neon);
+    box-shadow: 0 0 25px rgba(0,255,255,0.2);
     margin-top: 40px;
-    color: #777;
-    font-size: 14px;
     animation: fadeIn 3s ease;
   }
 
-  a {
-    color: #0ff;
+  footer {
+    margin: 40px 0 60px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    color: var(--neon);
     text-decoration: none;
   }
-  a:hover {
+  footer a:hover {
     color: #fff;
-    text-shadow: 0 0 10px #0ff;
+    text-shadow: 0 0 10px var(--neon);
   }
 </style>
 </head>
@@ -116,21 +139,24 @@
   <h1>WHATSAPP BAILEYS</h1>
   <div class="tagline">THANKS TO ALL PARTNER LEZARD</div>
 
-  <img src="https://files.catbox.moe/rkrxit.jpg" alt="Thumbnail">
+  <img class="hero" src="https://files.catbox.moe/rkrxit.jpg" alt="Thumbnail">
 
   <audio autoplay loop controls>
     <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mpeg">
   </audio>
 
-  <pre>
-DEVELOPER  : XLILNYX
-THANKS TO  : ALL PARTNER LEZARD
-ALL INFO   : @allaboutmeyaw
-  </pre>
+  <a class="btn" href="https://t.me/xlilnyx" target="_blank" rel="noopener noreferrer">
+    CONTACT ME
+  </a>
+
+  <pre class="info">
+DEVELOPER : XLILNYX
+THANKS TO : ALL PARTNER LEZARD
+ALL INFO  : @allaboutmeyaw
+</pre>
 
   <footer>
-    <p>© 2025 XLILNYX<br>
-    <a href="https://github.com/ownlilbot/xlilnyx-baileys" target="_blank">MY GITHUB BAILEYS</a></p>
+    ©2025 XLILNYX<a href="https://github.com/ownlilbot/xlilnyx-baileys" target="_blank" rel="noopener noreferrer">MY GITHUB BAILEYS</a>
   </footer>
 
 </body>
