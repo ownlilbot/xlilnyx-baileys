@@ -1,161 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>CRAFTED BY XLILNYX</title>
 <style>
-  body {
-    margin: 0;
-    background: radial-gradient(circle at center, #000 40%, #050505 100%);
-    color: #e0ffff;
-    font-family: 'Courier New', monospace;
-    text-align: center;
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    animation: fadeIn 1.5s ease;
+  :root{
+    --bg-1:#000;
+    --bg-2:#030303;
+    --neon:#00ffff;
+    --muted:#8aa;
   }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    min-height:100vh;
+    background:radial-gradient(circle at 35% 20%,#060606 0%,var(--bg-2) 40%,#000 100%);
+    color:#e6ffff;
+    font-family:"Courier New",monospace;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    overflow:hidden;
+    padding:28px 16px;
   }
-
-  h1 {
-    font-size: 2.8em;
-    margin-top: 50px;
-    color: #00ffff;
-    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
-    letter-spacing: 2px;
-    animation: glitch 2s infinite;
+  header{text-align:center;margin-top:6px}
+  h1{
+    font-size:2.2rem;
+    color:var(--neon);
+    text-shadow:0 0 10px #00ffff,0 0 30px rgba(0,255,255,0.08);
+    margin-bottom:6px;
+    letter-spacing:1.5px;
   }
-
-  @keyframes glitch {
-    0%, 100% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
-    50% { text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff; }
+  .tagline{
+    font-size:1rem;
+    color:#9ff;
+    margin-bottom:6px;
+    text-shadow:0 0 8px rgba(0,255,255,0.06);
   }
-
-  .tagline {
-    font-size: 1.1em;
-    color: #0ff;
-    margin-top: 10px;
-    text-shadow: 0 0 12px #0ff;
+  .card{
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    max-width:420px;
+    width:100%;
+    margin-top:6px;
   }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 30px;
+  .thumb{
+    width:220px;
+    max-width:72%;
+    border-radius:14px;
+    box-shadow:0 6px 30px rgba(0,255,255,0.08);
+    transition:transform .25s ease;
   }
-
-  img {
-    border-radius: 20px;
-    width: 230px;
-    max-width: 80%;
-    box-shadow: 0 0 30px #00ffff;
-    transition: transform 0.3s ease;
+  .thumb:hover{transform:scale(1.03)}
+  .info{
+    background:rgba(0,255,255,0.05);
+    color:var(--neon);
+    padding:10px 16px;
+    border-radius:10px;
+    box-shadow:0 0 18px rgba(0,255,255,0.06);
+    font-size:0.95rem;
+    line-height:1.5;
+    text-align:left;
+    width:fit-content;
+    max-width:90%;
+    white-space:pre-wrap;
   }
-
-  img:hover { transform: scale(1.05); }
-
-  audio { display: none; }
-
-  pre {
-    background: rgba(0, 255, 255, 0.08);
-    padding: 15px 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px #00ffff;
-    color: #0ff;
-    font-size: 0.95em;
-    line-height: 1.7;
-    width: fit-content;
-    max-width: 85%;
-    white-space: pre-wrap;
-    overflow: hidden;
-    border-right: 2px solid #0ff;
-    margin: 0 auto;
-    animation: typing 4s steps(40, end), blink 0.8s infinite;
+  footer{
+    z-index:10;
+    text-align:center;
+    margin-top:8px;
+    margin-bottom:6px;
+    color:var(--muted);
+    font-size:0.95rem;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    align-items:center;
   }
-
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+  footer a{color:var(--neon);text-decoration:none;font-weight:600}
+  footer a:hover{text-shadow:0 0 10px var(--neon)}
+  .particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    overflow:hidden;
   }
-
-  @keyframes blink {
-    50% { border-color: transparent; }
+  .p{
+    position:absolute;
+    border-radius:50%;
+    will-change:transform,opacity;
+    mix-blend-mode:screen;
+    opacity:0.85;
+    filter:blur(.2px);
   }
-
-  footer {
-    color: #888;
-    font-size: 14px;
-    margin: 30px 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-
-  footer a {
-    color: #0ff;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  footer a:hover {
-    color: #fff;
-    text-shadow: 0 0 12px #0ff;
-  }
-
-  @media (max-width: 600px) {
-    h1 { font-size: 2.2em; margin-top: 35px; }
-    pre { font-size: 0.85em; }
-    .tagline { font-size: 0.9em; }
+  @media(max-width:600px){
+    h1{font-size:1.6rem}
+    .thumb{width:180px}
+    .info{font-size:0.85rem;padding:8px 12px}
+    footer{font-size:0.85rem}
   }
 </style>
 </head>
 <body>
-
+<div class="particles" id="particles"></div>
+<header>
   <h1>WHATSAPP BAILEYS</h1>
   <div class="tagline">THANKS TO ALL PARTNER LEZARD</div>
-
-  <div class="content">
-    <img src="https://files.catbox.moe/rkrxit.jpg" alt="XLILNYX × LEZARD OFFICIAL">
-    <pre id="typed"></pre>
+</header>
+<main class="card">
+  <img class="thumb" src="https://files.catbox.moe/rkrxit.jpg" alt="XLILNYX × LEZARD OFFICIAL">
+  <div class="info">
+DEVELOPER : XLILNYX
+THANKS TO : ALL PARTNER LEZARD
+ALL INFO  : @allaboutlezard
   </div>
-
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mp4">
-  </audio>
-
-  <footer>
-    <p>©2025 XLILNYX</p>
-    <a href="https://github.com/ownlilbot" target="_blank">MY GITHUB</a>
-    <a href="https://t.me/xlilnyx" target="_blank">MY TELEGRAM</a>
-  </footer>
-
-  <script>
-const text =
-`DEVELOPER : XLILNYX
- THANKS TO : ALL PARTNER LEZARD
- ALL INFO  : @allaboutlezard`;
-    const target = document.getElementById("typed");
-    let i = 0;
-
-    function type() {
-      if (i < text.length) {
-        target.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 50); // kecepatan ngetik
+</main>
+<footer>
+  <div>©2025</div>
+  <a href="https://github.com/ownlilbot" target="_blank">MY GITHUB</a>
+  <a href="https://t.me/xlilnyx" target="_blank">MY TELEGRAM</a>
+</footer>
+<audio id="bg" loop preload="auto">
+  <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mp4">
+</audio>
+<script>
+(function(){
+  const colors=["#00ffff","#ff00ff","#9933ff","#33ccff","#66ff99"];
+  const P=document.getElementById("particles");
+  const count=Math.min(36,Math.round(window.innerWidth/30));
+  const particles=[];
+  const rand=(a,b)=>a+Math.random()*(b-a);
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  for(let i=0;i<count;i++){
+    const el=document.createElement("div");
+    el.className="p";
+    const s=rand(2,7);
+    el.style.width=el.style.height=s+"px";
+    el.style.left=rand(0,100)+"vw";
+    el.style.top=rand(0,100)+"vh";
+    el.style.background=`radial-gradient(circle,${pick(colors)} 0%,transparent 65%)`;
+    el.style.opacity=rand(0.35,0.95);
+    P.appendChild(el);
+    particles.push({
+      el,
+      x:parseFloat(el.style.left),
+      y:parseFloat(el.style.top),
+      vx:rand(-0.02,0.02),
+      vy:rand(-0.03,0.03),
+      rot:rand(0,360),
+      vr:rand(-0.04,0.04),
+      scale:rand(.6,1.6),
+      driftTimer:rand(3000,9000)
+    });
+  }
+  let last=performance.now();
+  function step(now){
+    const dt=Math.min(60,now-last);
+    last=now;
+    for(const p of particles){
+      p.x+=p.vx*(dt/16)*0.8;
+      p.y+=p.vy*(dt/16)*0.9;
+      p.rot+=p.vr*(dt/16);
+      if(p.x<-5)p.x=105;
+      if(p.x>105)p.x=-5;
+      if(p.y<-5)p.y=105;
+      if(p.y>105)p.y=-5;
+      p.el.style.transform=`translate(-50%,-50%) translate(${p.x}vw,${p.y}vh) rotate(${p.rot}deg) scale(${p.scale})`;
+      p.driftTimer-=dt;
+      if(p.driftTimer<=0){
+        p.vx=rand(-0.03,0.03);
+        p.vy=rand(-0.04,0.04);
+        p.vr=rand(-0.06,0.06);
+        p.driftTimer=rand(3000,9000);
       }
     }
-    window.onload = type;
-  </script>
-
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
+(function(){
+  const audio=document.getElementById("bg");
+  audio.volume=0;
+  audio.muted=true;
+  function fadeInTo(target=0.9,duration=3000){
+    audio.muted=false;
+    const steps=60;
+    const stepTime=duration/steps;
+    let cur=0;
+    const inc=target/steps;
+    const t=setInterval(()=>{
+      cur+=inc;
+      audio.volume=Math.min(cur,target);
+      if(audio.volume>=target)clearInterval(t);
+    },stepTime);
+  }
+  function tryPlay(){
+    const p=audio.play();
+    if(p!==undefined){
+      p.then(()=>{fadeInTo(0.9,3000);}).catch(()=>{
+        const resume=()=>{
+          audio.play().then(()=>fadeInTo(0.9,3000)).catch(()=>{});
+          window.removeEventListener("click",resume);
+          window.removeEventListener("touchstart",resume);
+        };
+        window.addEventListener("click",resume,{passive:true});
+        window.addEventListener("touchstart",resume,{passive:true});
+      });
+    }
+  }
+  tryPlay();
+  document.addEventListener("visibilitychange",()=>{
+    if(document.visibilityState==="visible")tryPlay();
+  });
+})();
+</script>
 </body>
 </html>
