@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CRAFTED BY XLILNYX</title>
 <style>
   body {
     margin: 0;
     background: radial-gradient(circle at center, #000 40%, #050505 100%);
-    color: #eee;
+    color: #e0ffff;
     font-family: 'Courier New', monospace;
     text-align: center;
     overflow-x: hidden;
-    animation: fadeIn 2s ease;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: fadeIn 1.5s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; } 
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin-top: 50px;
     color: #00ffff;
-    text-shadow: 0 0 10px #00ffff, 0 0 25px #00ffff;
+    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    letter-spacing: 2px;
     animation: glitch 2s infinite;
   }
 
   @keyframes glitch {
-    0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
-    25% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
-    50% { text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
-    75% { text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff; }
-    100% { text-shadow: 0 0 20px #00ffff; }
+    0%, 100% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+    50% { text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff; }
   }
 
   .tagline {
     font-size: 1.1em;
-    margin: 15px 0 25px;
     color: #0ff;
-    text-shadow: 0 0 15px #0ff;
+    margin-top: 10px;
+    text-shadow: 0 0 12px #0ff;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
   }
 
   img {
-    border-radius: 15px;
-    width: 85%;
-    max-width: 230px;
-    box-shadow: 0 0 25px #00ffff;
-    transition: transform 0.4s ease;
+    border-radius: 20px;
+    width: 230px;
+    max-width: 80%;
+    box-shadow: 0 0 30px #00ffff;
+    transition: transform 0.3s ease;
   }
 
   img:hover { transform: scale(1.05); }
@@ -60,34 +66,39 @@
   audio { display: none; }
 
   pre {
-    text-align: center;
-    display: inline-block;
     background: rgba(0, 255, 255, 0.08);
-    padding: 12px 22px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #0ff;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffff;
     color: #0ff;
-    animation: pulse 3s infinite alternate;
-    margin: 30px auto;
-    font-size: 0.9em;
+    font-size: 0.95em;
+    line-height: 1.7;
+    width: fit-content;
+    max-width: 85%;
     white-space: pre-wrap;
-    line-height: 1.6;
+    overflow: hidden;
+    border-right: 2px solid #0ff;
+    margin: 0 auto;
+    animation: typing 4s steps(40, end), blink 0.8s infinite;
   }
 
-  @keyframes pulse {
-    from { box-shadow: 0 0 10px #00ffff; }
-    to { box-shadow: 0 0 25px #00ffff; }
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
   }
 
   footer {
-    color: #777;
+    color: #888;
     font-size: 14px;
-    animation: fadeIn 3s ease;
+    margin: 30px 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px;
-    margin-bottom: 10px;
+    gap: 5px;
   }
 
   footer a {
@@ -98,13 +109,13 @@
 
   footer a:hover {
     color: #fff;
-    text-shadow: 0 0 10px #0ff;
+    text-shadow: 0 0 12px #0ff;
   }
 
   @media (max-width: 600px) {
-    h1 { font-size: 2em; }
-    .tagline { font-size: 0.95em; }
-    pre { font-size: 0.8em; }
+    h1 { font-size: 2.2em; margin-top: 35px; }
+    pre { font-size: 0.85em; }
+    .tagline { font-size: 0.9em; }
   }
 </style>
 </head>
@@ -113,23 +124,38 @@
   <h1>WHATSAPP BAILEYS</h1>
   <div class="tagline">THANKS TO ALL PARTNER LEZARD</div>
 
-  <img src="https://files.catbox.moe/rkrxit.jpg" alt="Thumbnail">
+  <div class="content">
+    <img src="https://files.catbox.moe/rkrxit.jpg" alt="XLILNYX × LEZARD OFFICIAL">
+    <pre id="typed"></pre>
+  </div>
 
   <audio autoplay loop>
-    <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mpeg">
+    <source src="https://files.catbox.moe/6trttu.m4a" type="audio/mp4">
   </audio>
 
-  <pre>
-DEVELOPER : XLILNYX
-THANKS TO : ALL PARTNER LEZARD
-ALL INFO  : @allaboutlezard
-  </pre>
-
   <footer>
-    <p>©XLILNYX</p>
-    <a href="https://github.com/ownlilbot/xlilnyx-baileys" target="_blank">MY GITHUB BAILEYS</a>
+    <p>©2025 XLILNYX</p>
+    <a href="https://github.com/ownlilbot" target="_blank">MY GITHUB</a>
     <a href="https://t.me/xlilnyx" target="_blank">MY TELEGRAM</a>
   </footer>
+
+  <script>
+const text =
+`DEVELOPER : XLILNYX
+ THANKS TO : ALL PARTNER LEZARD
+ ALL INFO  : @allaboutlezard`;
+    const target = document.getElementById("typed");
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        target.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 50); // kecepatan ngetik
+      }
+    }
+    window.onload = type;
+  </script>
 
 </body>
 </html>
