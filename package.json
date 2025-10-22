@@ -1,7 +1,7 @@
 {
-    "name": "@yuna/baileys",
+    "name": "@xlilnyx/baileys",
     "version": "2.0.3",
-    "description": "WhatsApp API Customization",
+    "description": "WhatsApp API Customization By Xlilnyx",
     "keywords": [
         "whatsapp",
         "baileys",
@@ -9,14 +9,14 @@
         "whatsapp-chat",
         "whatsapp-group",
         "botwa",
-        "yuna"
+        "xlilnyx"
     ],
-    "homepage": "https://www.npmjs.com/package/@yuna/baileys",
+    "homepage": "https://www.npmjs.com/package/@xlilnyx/baileys",
     "repository": {
-        "url": "https://www.npmjs.com/package/@yuna/baileys"
+        "url": "https://www.npmjs.com/package/@xlilnyx/baileys"
     },
     "license": "MIT",
-    "author": "Adhiraj Singh",
+    "author": "xlilnyx leader lezard",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
